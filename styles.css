@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter',sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+#header-left {
+    display: flex;
+    gap: 1rem;
+}
+
+#header-right {
+    display: flex;
+    gap: 1rem;
+}
+
+header * img {
+    width: 30px;
+    height: auto;
+}
+
+#app-name {
+    font-size: 1.5rem;
+}
+
+#search-icon {
+    width: 20px;
+}

@@ -14,30 +14,30 @@
     <link rel="icon" type="image/png" href="./images/podcast-icon.svg" />
   </head>
   <body>
+    <!-- Header -->
     <header>
       <div id="header-left">
-        <img
-          id="podcast-icon"
-          src="./images/podcast-icon.svg"
-          alt="Podcast icon"
-        />
+        <img class="icon" src="./images/podcast-icon.svg" alt="Podcast icon" />
         <h1 id="app-name">Podcast App</h1>
       </div>
       <div id="header-right">
         <img
           id="search-icon"
+          class="icon"
           src="./images/search-icon.svg"
           alt="Search icon"
         />
         <img
-          id="profile-picture"
+          class="icon"
           src="./images/account-circle-icon.svg"
           alt="Profile picture"
         />
       </div>
     </header>
+    <!-- Main -->
     <main>
-      <div id="filter-section">
+      <!-- Filter Section -->
+      <section id="filter-section">
         <p id="filter-by-text">Filter by:</p>
         <select name="all-genres" id="all-genres">
           <option value="All Genres">All Genres</option>
@@ -51,9 +51,28 @@
           <option value="Most Popular">Most Popular</option>
           <option value="Newest">Newest</option>
         </select>
-      </div>
-      <section>
-        <article></article>
+      </section>
+      <section id="card-section">
+        <!-- Card Section -->
+        <article class="podcast-container">
+          <div class="podcast-image">
+            <p class="podcast-cover-title">Podcast Cover</p>
+          </div>
+          <h3 class="podcast-title">Podcast Title</h3>
+          <div class="seasons-section">
+            <img
+              class="icon calender-icon"
+              src="./images/calender-icon.svg"
+              alt="calender-icon"
+            />
+            <p class="num-seasons">3 seasons</p>
+          </div>
+          <div class="genre-section">
+            <span class="genre-name">Technology</span>
+            <span class="genre-name">Business</span>
+          </div>
+          <p class="updated-status">Updated 2 days ago</p>
+        </article>
       </section>
     </main>
   </body>

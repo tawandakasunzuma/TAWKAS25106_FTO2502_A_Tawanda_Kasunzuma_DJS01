@@ -27,7 +27,7 @@ header {
     gap: 1rem;
 }
 
-header * img {
+.icon {
     width: 30px;
     height: auto;
 }
@@ -45,7 +45,7 @@ header * img {
 ===============*/
 
 main {
-    background-color: rgba(128, 128, 128, 0.05);
+    background-color: rgba(128, 128, 128, 0.1);
     padding: 1rem 2rem;
 }
 
@@ -55,13 +55,96 @@ main {
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin: 1rem 0;
 }
 
 #all-genres,
 #recently-updated {
     padding: 0.25rem 0.5rem;
     border: 1px solid rgba(128, 128, 128, 0.4);
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
 }
 
 /* Cards */
+
+#card-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+/* Podcast container */
+
+.podcast-container {
+    margin-top: 1rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+/* Podcast image */
+
+.podcast-image {
+    background-color: rgba(128, 128, 128, 0.8);
+    height: 200px;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.podcast-cover-title {
+    color: white;
+}
+
+/* Podcast title */
+
+.podcast-title {
+    font-size: 1rem;
+}
+
+/* Seasons section */
+
+.seasons-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.calender-icon {
+    width: 20px;
+}
+
+.num-seasons {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+/* Genre section */
+
+.genre-section {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.genre-name {
+    background-color: rgba(128, 128, 128, 0.2);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.25rem;
+    margin: 0.5rem 0;
+}
+
+/* Updated Status */
+
+.updated-status {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 0.5rem;
+}

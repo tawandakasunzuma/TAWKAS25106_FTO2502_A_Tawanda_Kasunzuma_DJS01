@@ -1,8 +1,36 @@
+/*===============
+    Global Properties
+===============*/
+
+:root {
+    /* Colors */
+    --very-light-gray-color: rgba(128, 128, 128, 0.1);
+    --light-gray-color: rgba(128, 128, 128, 0.2);
+    --medium-gray-color: rgba(128, 128, 128, 0.4);
+    --dark-gray-color: rgba(128, 128, 128, 0.8);
+    --very-dark-gray-color: rgba(0, 0, 0, 0.8);
+
+    /* Paddings */
+    --small-padding: 0.5rem;
+    --normal-padding: 1rem;
+    --large-padding: 2rem;
+
+    /* Gaps */
+    --small-gap: 0.5rem;
+    --normal-gap: 1rem;
+    --big-gap: 2rem;
+
+    /* Border Radius */
+    --small-border-radius: 0.25rem;
+    --normal-border-radius: 0.5rem;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     font-family: 'Inter',sans-serif;
+    color: var(--very-dark-gray-color);
 }
 
 /*===============
@@ -13,23 +41,24 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    box-shadow: 2px 2px 3px rgba(128, 128, 128, 0.2);
+    padding: var(--normal-padding) var(--large-padding);
+    box-shadow: 2px 2px 3px var(--light-gray-color);
 }
 
 #header-left {
     display: flex;
-    gap: 1rem;
+    gap: var(--normal-gap);
 }
 
 #header-right {
     display: flex;
-    gap: 1rem;
+    gap: var(--normal-gap);
 }
 
 .icon {
     width: 30px;
     height: auto;
+    cursor: pointer;
 }
 
 #app-name {
@@ -45,8 +74,9 @@ header {
 ===============*/
 
 main {
-    background-color: rgba(128, 128, 128, 0.1);
-    padding: 1rem 2rem;
+    background-color: var(--very-light-gray-color);
+    padding: var(--normal-padding) var(--large-padding);
+    min-height: 90vh;
 }
 
 /* Filter section */
@@ -54,15 +84,15 @@ main {
 #filter-section {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--normal-gap);
     margin: 1rem 0;
 }
 
 #all-genres,
 #recently-updated {
     padding: 0.25rem 0.5rem;
-    border: 1px solid rgba(128, 128, 128, 0.4);
-    border-radius: 0.5rem;
+    border: 1px solid var(--medium-gray-color);
+    border-radius: var(--normal-border-radius);
 }
 
 /* Cards */
@@ -70,7 +100,7 @@ main {
 #card-section {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: var(--big-gap);
 }
 
 /* Podcast container */
@@ -78,20 +108,21 @@ main {
 .podcast-container {
     margin-top: 1rem;
     background-color: white;
-    padding: 1rem;
-    border-radius: 0.5rem;
+    padding: var(--normal-padding);
+    border-radius: var(--normal-border-radius);
 }
 
 /* Podcast image */
 
 .podcast-image {
-    background-color: rgba(128, 128, 128, 0.8);
+    background-color: var(--dark-gray-color);
     height: 200px;
-    border-radius: 0.5rem;
+    border-radius: var(--normal-border-radius);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 0.75rem;
+    cursor: pointer;
 }
 
 .podcast-cover-title {
@@ -102,6 +133,7 @@ main {
 
 .podcast-title {
     font-size: 1rem;
+    cursor: pointer;
 }
 
 /* Seasons section */
@@ -109,35 +141,35 @@ main {
 .seasons-section {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--small-gap);
     margin: 0.5rem 0;
 }
 
 .calender-icon {
     width: 20px;
+    cursor: auto;
 }
 
 .num-seasons {
     font-size: 0.75rem;
     font-weight: 600;
-    color: rgba(0, 0, 0, 0.8);
 }
 
 /* Genre section */
 
 .genre-section {
     display: flex;
-    gap: 0.5rem;
+    gap: var(--small-gap);
 }
 
 .genre-name {
-    background-color: rgba(128, 128, 128, 0.2);
+    background-color: var(--light-gray-color);
     font-size: 0.75rem;
     font-weight: 600;
-    color: rgba(0, 0, 0, 0.8);
     padding: 0.125rem 0.5rem;
-    border-radius: 0.25rem;
+    border-radius: var(--small-border-radius);
     margin: 0.5rem 0;
+    cursor: pointer;
 }
 
 /* Updated Status */
@@ -145,6 +177,28 @@ main {
 .updated-status {
     font-size: 0.75rem;
     font-weight: 600;
-    color: rgba(0, 0, 0, 0.6);
+    color: var(--dark-gray-color);
     margin-top: 0.5rem;
+}
+
+/*===============
+    Media Quires
+===============*/
+
+@media all and (max-width: 480px) {
+    #card-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media all and (max-width: 768px) {
+    #card-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media all and (max-width: 1024px) {
+    #card-section {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }

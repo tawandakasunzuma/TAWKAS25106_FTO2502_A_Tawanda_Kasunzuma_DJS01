@@ -43,7 +43,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: var(--normal-padding) var(--large-padding);
-    box-shadow: 2px 2px 3px var(--light-gray-color);
+    box-shadow: 0 2px 4px var(--light-gray-color);
 }
 
 #header-left {
@@ -111,24 +111,34 @@ main {
     background-color: var(--white-color);
     padding: var(--normal-padding);
     border-radius: var(--normal-border-radius);
-    box-shadow: 2px 2px 3px var(--light-gray-color);
+    box-shadow: 0 2px 4px var(--light-gray-color);
 }
 
 /* Podcast image */
 
+.image-container {
+    position: relative;
+    margin-bottom: 0.75rem;
+}
+
 .podcast-image {
-    background-color: var(--dark-gray-color);
     height: 200px;
     border-radius: var(--normal-border-radius);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0.75rem;
     cursor: pointer;
+    width: 100%;
+    object-fit: cover;
 }
 
 .podcast-cover-title {
     color: var(--white-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
 }
 
 /* Podcast title */
@@ -172,6 +182,7 @@ main {
     border-radius: var(--small-border-radius);
     margin: 0.5rem 0;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 /* Updated Status */
@@ -196,6 +207,7 @@ main {
     min-width: 100vw;
     min-height: 100vh;
     z-index: 1;
+    display: none;
 }
 
 /* Modal */
@@ -211,7 +223,8 @@ main {
     padding: var(--large-padding);
     border-radius: var(--normal-border-radius);
     z-index: 2;
-    box-shadow: 0 0 6px var(--medium-gray-color);
+    box-shadow: 0 0 8px var(--medium-gray-color);
+    display: none;
 }
 
 /* Modal Heading */
@@ -373,6 +386,9 @@ main {
         width: 100%;
         height: 160px;
     }
+    #modal {
+        top: 55%;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -385,6 +401,9 @@ main {
     #modal-image {
         width: 100%;
         height: 180px;
+    }
+    #modal {
+        top: 55%;
     }
 }
 

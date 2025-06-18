@@ -61,9 +61,9 @@
           <h3 class="podcast-title">Podcast Title</h3>
           <div class="seasons-section">
             <img
-              class="icon calender-icon"
-              src="./images/calender-icon.svg"
-              alt="calender-icon"
+              class="icon seasons-icon"
+              src="./images/seasons-icon.svg"
+              alt="Seasons icon"
             />
             <p class="num-seasons">3 seasons</p>
           </div>
@@ -75,5 +75,74 @@
         </article>
       </section>
     </main>
+    <!-- Modal -->
+    <div id="overlay"></div>
+    <div id="modal">
+      <div id="modal-heading-section">
+        <h3 id="modal-heading-title">Podcast Title</h3>
+        <img
+          class="icon"
+          id="modal-close-btn"
+          src="./images/close-btn.svg"
+          alt="Close button"
+        />
+      </div>
+      <div id="modal-main">
+        <div id="modal-image">
+          <div id="modal-image-text">Large Cover Image</div>
+        </div>
+        <div id="modal-main-right">
+          <h4 id="modal-description-heading">Description</h4>
+          <p id="modal-description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
+            provident autem veniam ullam similique, natus, atque totam porro,
+            eum obcaecati aut molestias aliquid tenetur deleniti id
+            reprehenderit nemo odit nostrum? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Atque enim minus culpa in nisi
+            voluptatibus nam mollitia animi accusantium ea veniam fugiat,
+          </p>
+          <h4 id="modal-genre-heading">Genres</h4>
+          <div id="modal-genre-container">
+            <span>Technology</span>
+            <span>Business</span>
+            <span>Innovation</span>
+            <span>Entrepreneurship</span>
+          </div>
+          <div id="modal-last-updated-container">
+            <img
+              class="icon calender-icon"
+              src="./images/calender-icon.svg"
+              alt="Calender icon"
+            />
+            <p id="modal-last-updated">Last updated: January 15, 2025</p>
+          </div>
+        </div>
+      </div>
+      <div id="modal-bottom">
+        <h3>Seasons</h3>
+        <div class="modal-season-container">
+          <div class="modal-season-left">
+            <h4 class="modal-season-heading">Season 1: Getting Started</h4>
+            <p class="modal-season-description">
+              Introduction to the fundamentals
+            </p>
+          </div>
+          <div class="modal-season-right">
+            <p class="modal-season-number">12 episodes</p>
+          </div>
+        </div>
+        <div class="modal-season-container">
+          <div class="modal-season-left">
+            <h4 class="modal-season-heading">Season 2: Advanced Topics</h4>
+            <p class="modal-season-description">
+              Deep dives into complex subjects
+            </p>
+          </div>
+          <div class="modal-season-right">
+            <p class="modal-season-number">15 episodes</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

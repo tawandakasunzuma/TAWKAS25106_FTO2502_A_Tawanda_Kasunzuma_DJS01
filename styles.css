@@ -4,6 +4,7 @@
 
 :root {
     /* Colors */
+    --white-color: rgba(255, 255, 255, 1);
     --very-light-gray-color: rgba(128, 128, 128, 0.1);
     --light-gray-color: rgba(128, 128, 128, 0.2);
     --medium-gray-color: rgba(128, 128, 128, 0.4);
@@ -107,9 +108,10 @@ main {
 
 .podcast-container {
     margin-top: 1rem;
-    background-color: white;
+    background-color: var(--white-color);
     padding: var(--normal-padding);
     border-radius: var(--normal-border-radius);
+    box-shadow: 2px 2px 3px var(--light-gray-color);
 }
 
 /* Podcast image */
@@ -126,7 +128,7 @@ main {
 }
 
 .podcast-cover-title {
-    color: white;
+    color: var(--white-color);
 }
 
 /* Podcast title */
@@ -145,7 +147,7 @@ main {
     margin: 0.5rem 0;
 }
 
-.calender-icon {
+.seasons-icon {
     width: 20px;
     cursor: auto;
 }
@@ -182,22 +184,211 @@ main {
 }
 
 /*===============
+    Modal
+===============*/
+
+/*Overlay*/
+
+#overlay {
+    background-color: var(--medium-gray-color);
+    position: fixed;
+    top: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+/* Modal */
+
+#modal {
+    background-color: var(--white-color);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: var(--large-padding);
+    border-radius: var(--normal-border-radius);
+    z-index: 2;
+    box-shadow: 0 0 6px var(--medium-gray-color);
+}
+
+/* Modal Heading */
+
+#modal-heading-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+#modal-heading-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+#modal-close-btn {
+    width: 20px;
+}
+
+/* Modal Main */
+
+#modal-main {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--big-gap);
+}
+
+/* Modal Main - Left */
+
+#modal-image {
+    background-color: var(--dark-gray-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border-radius: var(--normal-border-radius);   
+}
+
+#modal-image-text {
+    color: var(--white-color);
+}
+
+/* Modal Main - Right */
+
+#modal-main-right {
+    flex: 1;
+}
+
+#modal-description-heading,
+#modal-genre-heading {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Modal Main - Right (Description) */
+
+#modal-description {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 0.75rem;
+}
+
+/* Modal Main - Right (Genre) */
+
+#modal-genre-container {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0 1rem 1rem;
+}
+
+#modal-genre-container span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+    background-color: var(--light-gray-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--small-border-radius);
+    cursor: pointer;
+}
+
+/* Modal Main - Right (Updated Container) */
+
+#modal-last-updated-container {
+    display: flex;
+    align-items: center;
+    gap: var(--small-gap);
+}
+
+.calender-icon {
+    width: 15px;
+}
+
+#modal-last-updated {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0.5rem 0;
+}
+
+/* Modal Bottom */
+
+#modal-bottom {
+    color: blue;
+    display: flex;
+    flex-direction: column;
+    gap: var(--small-gap);
+}
+
+#modal-bottom h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    padding: 1rem 0;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-season-container {
+    border: 1px solid var(--light-gray-color);
+    padding: var(--normal-padding);
+    border-radius: var(--normal-border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-season-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.modal-season-description {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-season-number {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/*===============
     Media Quires
 ===============*/
 
-@media all and (max-width: 480px) {
+@media (max-width: 480px) {
     #card-section {
         grid-template-columns: 1fr;
     }
-}
-
-@media all and (max-width: 768px) {
-    #card-section {
-        grid-template-columns: repeat(2, 1fr);
+    #modal-main {
+        flex-direction: column;
+    }
+    #modal-image {
+        width: 100%;
+        height: 160px;
     }
 }
 
-@media all and (max-width: 1024px) {
+@media (min-width: 481px) and (max-width: 768px) {
+    #card-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #modal-main {
+        flex-direction: column;
+    }
+    #modal-image {
+        width: 100%;
+        height: 180px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1025px) {
     #card-section {
         grid-template-columns: repeat(3, 1fr);
     }

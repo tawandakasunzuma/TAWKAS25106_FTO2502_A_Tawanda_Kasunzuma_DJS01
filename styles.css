@@ -5,11 +5,16 @@
     font-family: 'Inter',sans-serif;
 }
 
+/*===============
+    Header
+===============*/
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    box-shadow: 2px 2px 3px rgba(128, 128, 128, 0.2);
 }
 
 #header-left {
@@ -34,3 +39,29 @@ header * img {
 #search-icon {
     width: 20px;
 }
+
+/*===============
+    Main
+===============*/
+
+main {
+    background-color: rgba(128, 128, 128, 0.05);
+    padding: 1rem 2rem;
+}
+
+/* Filter section */
+
+#filter-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#all-genres,
+#recently-updated {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    border-radius: 0.25rem;
+}
+
+/* Cards */

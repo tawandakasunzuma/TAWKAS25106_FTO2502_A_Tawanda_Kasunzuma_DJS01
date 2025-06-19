@@ -109,8 +109,8 @@ function openModal (podcast) {
     const date = new Date(podcast.updated);
     // Define formatting options
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    // Format the date using the options and set the locale to U.S. English
-    const formattedDate = date.toLocaleDateString('en-US', options);
+    // // Format the date using the South African locale
+    const formattedDate = date.toLocaleDateString('en-ZA', options);
     // Display date in correct format
     modalLastUpdated.textContent = `Last updated: ${formattedDate}`;
 }

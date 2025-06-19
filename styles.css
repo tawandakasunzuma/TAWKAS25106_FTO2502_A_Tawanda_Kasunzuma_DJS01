@@ -100,7 +100,7 @@ main {
 
 #card-section {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: var(--big-gap);
 }
 
@@ -112,6 +112,8 @@ main {
     padding: var(--normal-padding);
     border-radius: var(--normal-border-radius);
     box-shadow: 0 2px 4px var(--light-gray-color);
+    width: 100%;
+    max-width: 100%;
 }
 
 /* Podcast image */
@@ -119,13 +121,15 @@ main {
 .image-container {
     position: relative;
     margin-bottom: 0.75rem;
+    width: 100%;
+    max-width: 100%;
 }
 
 .podcast-image {
-    height: 200px;
+    height: auto;
+    width: 100%;
     border-radius: var(--normal-border-radius);
     cursor: pointer;
-    width: 100%;
     object-fit: cover;
 }
 
@@ -176,7 +180,9 @@ main {
 
 .genre-section {
     display: flex;
-    gap: var(--small-gap);
+    flex-wrap: wrap;
+    gap: 0.5rem var(--small-gap);
+    margin: 0.5rem 0;
 }
 
 .genre-name {
@@ -185,7 +191,6 @@ main {
     font-weight: 600;
     padding: 0.125rem 0.5rem;
     border-radius: var(--small-border-radius);
-    margin: 0.5rem 0;
     cursor: pointer;
     white-space: nowrap;
 }
@@ -270,10 +275,6 @@ main {
     border-radius: var(--normal-border-radius);   
 }
 
-#modal-image-text {
-    color: var(--white-color);
-}
-
 /* Modal Main - Right */
 
 #modal-main-right {
@@ -303,7 +304,7 @@ main {
     margin: 1rem 0 1rem 1rem;
 }
 
-#modal-genre-container span {
+.modal-genre-item {
     font-size: 0.75rem;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.7);
@@ -381,39 +382,46 @@ main {
 ===============*/
 
 @media (max-width: 480px) {
-    #card-section {
-        grid-template-columns: 1fr;
-    }
     #modal-main {
         flex-direction: column;
     }
     #modal-image {
-        width: 100%;
+        width: auto;
         height: 160px;
     }
     #modal {
         top: 55%;
+        max-width: 80vw;
+    }
+    .podcast-image {
+        height: 160px;
+        width: auto;
+    }
+    body {
+        background-color: green;
     }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
-    #card-section {
-        grid-template-columns: repeat(2, 1fr);
-    }
     #modal-main {
         flex-direction: column;
     }
     #modal-image {
-        width: 100%;
+        width: auto;
         height: 180px;
     }
     #modal {
         top: 55%;
+        max-width: 90vw;
     }
-}
-
-@media (min-width: 769px) and (max-width: 1025px) {
+    .podcast-image {
+        height: 180px;
+        width: auto;
+    }
     #card-section {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    body {
+        background-color: red;
     }
 }

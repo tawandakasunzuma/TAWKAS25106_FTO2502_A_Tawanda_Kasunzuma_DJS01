@@ -66,20 +66,56 @@ podcasts.forEach(podcast => {
     cardSection.append(article)
 
     // Open and close modal
-    const overlay = document.getElementById("overlay");
-    const modal = document.getElementById("modal");
     const modalCloseBtn = document.getElementById("modal-close-btn");
-    image.addEventListener("click", openModal);
-    modalCloseBtn.addEventListener("click", closeModal);
-
-    // Populate modal
+    image.addEventListener("click", () => openModal(podcast));
+    modalCloseBtn.addEventListener("click",  () => closeModal(podcast));
+    overlay.addEventListener("click", () => closeModal(podcast));
 })
 
-function openModal () {
+// Open Modal
+function openModal (podcast) {
+
+    // Open modal and overlay
+    const overlay = document.getElementById("overlay");
+    const modal = document.getElementById("modal");
     overlay.style.display = "block";
     modal.style.display = "block"
+
+    // Populate modal
+    const modalHeadingTitle = document.getElementById("modal-heading-title");
+    modalHeadingTitle.textContent = podcast.title;
+
+    const modalImage = document.getElementById("modal-image");
+    modalImage.src = podcast.image;
+
+    const modalDescription = document.getElementById("modal-description");
+    modalDescription.textContent = podcast.description;
+
+    const modalGenreContainer = document.getElementById("modal-genre-container");
+    modalGenreContainer.innerHTML = "";
+    for (let j = 0; j < podcast.genres.length; j++) {
+        for (let i = 0; i < genres.length; i++) {
+            if (genres[i].id === podcast.genres[j]) {
+                const ModalGenreName = document.createElement("span");
+                ModalGenreName.classList.add("genre-name");
+                ModalGenreName.textContent = genres[i].title;
+                modalGenreContainer.append(ModalGenreName);
+            }
+        }
+    }
+
+    const modalLastUpdated = document.getElementById("modal-last-updated");
+    // Format the date to JS date object
+    const date = new Date(podcast.updated);
+    // Define formatting options
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    // Format the date using the options and set the locale to U.S. English
+    const formattedDate = date.toLocaleDateString('en-US', options);
+    // Display date in correct format
+    modalLastUpdated.textContent = `Last updated: ${formattedDate}`;
 }
 
+// Close Modal
 function closeModal () {
     overlay.style.display = "none";
     modal.style.display = "none"

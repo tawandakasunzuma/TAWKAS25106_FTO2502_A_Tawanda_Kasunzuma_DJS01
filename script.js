@@ -4,7 +4,7 @@ const cardSection = document.getElementById("card-section");
 
 console.log(podcasts)
 
-podcasts.map(podcast => {
+podcasts.forEach(podcast => {
 
     const article = document.createElement("article");
     article.classList.add("podcast-container");
@@ -55,10 +55,7 @@ podcasts.map(podcast => {
         }
     }
 
-    // Difference in milliseconds
     const differenceInMs = new Date() - new Date (podcast.updated);
-
-    // Milliseconds in days
     const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
 
     const lastUpdated = document.createElement("p");
@@ -67,4 +64,23 @@ podcasts.map(podcast => {
 
     article.append(imageContainer,podcastTitle,seasonsSection,genreSection,lastUpdated)
     cardSection.append(article)
+
+    // Open and close modal
+    const overlay = document.getElementById("overlay");
+    const modal = document.getElementById("modal");
+    const modalCloseBtn = document.getElementById("modal-close-btn");
+    image.addEventListener("click", openModal);
+    modalCloseBtn.addEventListener("click", closeModal);
+
+    // Populate modal
 })
+
+function openModal () {
+    overlay.style.display = "block";
+    modal.style.display = "block"
+}
+
+function closeModal () {
+    overlay.style.display = "none";
+    modal.style.display = "none"
+}

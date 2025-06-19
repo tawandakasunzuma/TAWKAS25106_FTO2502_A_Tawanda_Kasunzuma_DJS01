@@ -1,4 +1,4 @@
-import { podcasts, genres } from './data.js'
+import { podcasts, genres, seasons } from './data.js'
 
 const cardSection = document.getElementById("card-section");
 
@@ -113,6 +113,47 @@ function openModal (podcast) {
     const formattedDate = date.toLocaleDateString('en-ZA', options);
     // Display date in correct format
     modalLastUpdated.textContent = `Last updated: ${formattedDate}`;
+
+    // Populate seasons
+    const modalBottom = document.getElementById("modal-bottom");
+    modalBottom.innerHTML = "";
+
+    const matchingSeason = seasons.find(season => season.id === podcast.id);
+
+    if (matchingSeason) {
+        let numberSeasons = 1;
+        matchingSeason.seasonDetails.forEach(season => {
+            const seasonsDiv = document.createElement("div");
+            seasonsDiv.classList.add("modal-season-container");
+
+            const modalSeasonLeft = document.createElement("div");
+            modalSeasonLeft.classList.add("modal-season-left");
+
+            const modalSeasonHeading = document.createElement("h4");
+            modalSeasonHeading.classList.add("modal-season-heading");
+            modalSeasonHeading.textContent = `Season ${numberSeasons++}`
+
+            const modalSeasonDescription = document.createElement("p");
+            modalSeasonDescription.classList.add("modal-season-description");
+            if (modalSeasonHeading.textContent !== season.title) {
+                modalSeasonDescription.textContent = season.title;
+            }
+
+            modalSeasonLeft.append(modalSeasonHeading, modalSeasonDescription);
+
+            const modalSeasonRight = document.createElement("div");
+            modalSeasonRight.classList.add("modal-season-right");
+
+            const modalSeasonNumber = document.createElement("p");
+            modalSeasonNumber.classList.add("modal-season-number");
+            modalSeasonNumber.textContent = `${season.episodes} episodes`;
+
+            modalSeasonRight.append(modalSeasonNumber);
+
+            seasonsDiv.append(modalSeasonLeft, modalSeasonRight);
+            modalBottom.append(seasonsDiv);
+        });
+    };
 }
 
 // Close Modal

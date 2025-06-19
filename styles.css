@@ -115,6 +115,13 @@ main {
     border-radius: var(--normal-border-radius);
     box-shadow: 0 2px 4px var(--light-gray-color);
     width: 100%;
+    transition: all 600ms ease-in-out;
+}
+
+.podcast-container:hover,
+.podcast-container:active {
+    box-shadow: 0 2px 8px var(--medium-gray-color);
+    transform: translateY(-2px);
 }
 
 /* Podcast image */
@@ -132,23 +139,32 @@ main {
     border-radius: var(--normal-border-radius);
     cursor: pointer;
     object-fit: cover;
+    position: relative;
+    z-index: 1;
+    transition: opacity 600ms ease-in-out;
+}
+
+.podcast-image:hover,
+.podcast-image:active {
+    opacity: 0.125;
 }
 
 .podcast-cover-title {
-    display: none;
+    display: flex;
+    font-weight: 500;
+    padding: 0 0.5rem;
     justify-content: center;
     align-items: center;
     color: var(--white-color);
     border-radius: var(--normal-border-radius);
     text-align: center;
-    background-color: var(--very-dark-gray-color);
+    background-color: black;
     width: 100%;
-    height: 100%;
+    height: 97%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    pointer-events: none;
 }
 
 /* Podcast title */
@@ -255,6 +271,12 @@ main {
 
 #modal-close-btn {
     width: 20px;
+    transition: all 300ms ease-in-out;
+}
+
+#modal-close-btn:hover,
+#modal-close-btn:active {
+    transform: scale(1.5);
 }
 
 /* Modal Main */
@@ -322,6 +344,7 @@ main {
     display: flex;
     align-items: center;
     gap: var(--small-gap);
+    margin-bottom: 1rem;
 }
 
 .calender-icon {
@@ -408,6 +431,13 @@ main {
     .modal-season-heading {
         font-size: 0.875rem;
     }
+    #modal-close-btn:hover,
+    #modal-close-btn:active {
+        transform: scale(1.25);
+    }
+    .podcast-cover-title {
+        height: 94%;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
@@ -424,6 +454,13 @@ main {
     }
     #card-section {
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    #modal-close-btn:hover,
+    #modal-close-btn:active {
+        transform: scale(1.25);
+    }
+    .podcast-cover-title {
+        height: 94%;
     }
 }
 

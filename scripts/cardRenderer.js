@@ -136,7 +136,7 @@ function attachModalListeners() {
   // When a podcast image is clicked, find the related podcast and open the modal
   cardSection.addEventListener('click', event => {
     if (event.target.classList.contains('podcast-image')) {
-      const podcastId = Number(event.target.dataset.podcastId);
+      const podcastId = event.target.dataset.podcastId;
       const podcast = podcasts.find(podcast => podcast.id === podcastId);
       if (podcast) {
         openModal(podcast);

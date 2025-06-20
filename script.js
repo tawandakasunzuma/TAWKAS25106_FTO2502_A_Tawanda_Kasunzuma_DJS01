@@ -2,8 +2,6 @@ import { podcasts, genres, seasons } from './data.js'
 
 const cardSection = document.getElementById("card-section");
 
-console.log(podcasts)
-
 podcasts.forEach(podcast => {
 
     const article = document.createElement("article");
@@ -135,9 +133,9 @@ function openModal (podcast) {
 
             const modalSeasonDescription = document.createElement("p");
             modalSeasonDescription.classList.add("modal-season-description");
-            if (modalSeasonHeading.textContent !== season.title) {
-                modalSeasonDescription.textContent = season.title;
-            }
+            modalSeasonHeading.textContent !== season.title
+                ? modalSeasonDescription.textContent = season.title
+                : modalSeasonDescription.textContent = "-";
 
             modalSeasonLeft.append(modalSeasonHeading, modalSeasonDescription);
 
